@@ -25,7 +25,7 @@ export default function Home({ products, totalPages, page, search, category }: H
   const addToCart = async (productId: string) => {
     const token = localStorage.getItem("token");
     if (!token) {
-      setMessage("Please login first to add items to cart.");
+      setMessage("Please log in first to add items to cart.");
       return;
     }
 
@@ -35,7 +35,7 @@ export default function Home({ products, totalPages, page, search, category }: H
         token,
         body: { productId, quantity: 1 }
       });
-      setMessage("Added to cart.");
+      setMessage("Item added to cart.");
     } catch (error) {
       setMessage((error as Error).message);
     }
@@ -43,7 +43,7 @@ export default function Home({ products, totalPages, page, search, category }: H
 
   return (
     <div>
-      <h2>Product Catalog (SSR)</h2>
+      <h2>Product Catalog</h2>
       <form style={{ marginBottom: "1rem", display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
         <input className="input" name="search" defaultValue={search} placeholder="Search by keyword" />
         <input className="input" name="category" defaultValue={category} placeholder="Category filter" />

@@ -1,9 +1,15 @@
 # FullStackExamParthRamchandani20260319
 
-Mini full-stack e-commerce application built for the exam brief:
+A mini full-stack e-commerce application built for the exam brief.
 - Back end: Node.js + Express, MVC pattern
 - Databases: PostgreSQL (users/orders/order_items) + MongoDB (products/cart)
 - Front end: Next.js with TypeScript and SSR product listing
+
+## Live Deployment
+
+- Frontend URL: https://fullstackexam-parthramchandani-2026.vercel.app/
+- Backend URL: https://fullstackexam-parthramchandani-20260319.onrender.com/
+- GitHub Repository: https://github.com/parth-ramchandani/FullStackExam_ParthRamchandani_20260319
 
 ## Project Structure
 
@@ -25,7 +31,7 @@ Mini full-stack e-commerce application built for the exam brief:
 - `pages/reports.tsx`: SQL + Mongo report UI
 - `pages/login.tsx`, `pages/register.tsx`: authentication pages
 
-## Features Implemented
+## Features
 
 1. **Authentication**
    - Register/login APIs with hashed passwords (`bcryptjs`)
@@ -105,9 +111,27 @@ npm run dev
 
 Frontend app: `http://localhost:3000`
 
-## Important Notes
+## Production Environment Variables
 
-- Product list uses **SSR** (`getServerSideProps`) as required.
-- Product details use **dynamic route** (`/products/[id]`).
-- Controllers are separated cleanly and do not directly contain DB setup logic.
-- SQL and Mongo responsibilities are intentionally split by model type for readability.
+Backend:
+
+```env
+NODE_ENV=production
+JWT_SECRET=replace-with-a-strong-secret
+POSTGRES_URI=<cloud-postgres-uri>
+MONGODB_URI=<cloud-mongodb-uri>
+```
+
+Frontend:
+
+```env
+NEXT_PUBLIC_API_BASE_URL=<deployed-backend-url>/api
+```
+
+## Notes
+
+- Product listing page is rendered with **SSR** (`getServerSideProps`).
+- Product details are handled through the **dynamic route** (`/products/[id]`).
+- Controllers are separated from data access to keep the MVC structure clean.
+- SQL and Mongo responsibilities are split by model type for maintainability.
+- Deployed version has been manually tested for auth, cart, checkout, orders, and reports flow.

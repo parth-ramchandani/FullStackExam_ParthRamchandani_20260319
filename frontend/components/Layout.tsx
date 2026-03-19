@@ -5,7 +5,7 @@ export default function Layout({ children }: PropsWithChildren) {
   return (
     <div className="container">
       <header className="topbar">
-        <h1>Mini Commerce</h1>
+        <h1>Parth's Storefront</h1>
         <nav>
           <Link href="/">Products</Link>
           <Link href="/cart">Cart</Link>
